@@ -16,5 +16,7 @@ script:
 deploy:
   provider: script
   script:
-    docker-compose up -d; 
+    docker-compose up --build -d;
+    docker-compose exec web rails db:create;
+    docker-compose exec web rails db:migrate; 
     docker-compose exec web rails s -b 0.0.0.0
