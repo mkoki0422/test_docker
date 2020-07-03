@@ -14,5 +14,6 @@ script:
 
 
 deploy:
+  provider: script
   script:
-    - docker-compose exec --env 'RAILS_ENV=test' web rails s -b 0.0.0.0
+    - docker-compose exec web rails s -b 0.0.0.0
